@@ -2,6 +2,7 @@ package churd.cafe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
  * https://spring.io/guides/gs/serving-web-content/#initial
@@ -10,10 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * java -jar target/gs-serving-web-content-0.1.0.jar
  */
 @SpringBootApplication
-public class Application {
+@ServletComponentScan(basePackages = {"churd.metrics"})
+public class ChurdsCafeWebApplication {
+
+    // TODO: add README detail about including ServletComponentScan for spring to load the web filter
+
+    // TODO: clean up comments into readme
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ChurdsCafeWebApplication.class, args);
     }
 
 }

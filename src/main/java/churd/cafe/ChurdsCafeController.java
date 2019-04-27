@@ -12,6 +12,12 @@ public class ChurdsCafeController {
 
     @GetMapping("/about")
     public String about(@RequestParam(name="name", required=false, defaultValue="you") String name, Model model) {
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
         model.addAttribute("name", name);
         return "about";
     }
