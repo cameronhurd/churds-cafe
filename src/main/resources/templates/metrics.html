@@ -14,5 +14,15 @@
     <p th:text="'Minimum: ' + ${responseTimeMsMin}" />
     <p th:text="'Maximum: ' + ${responseTimeMsMax}" />
     <p th:text="'Average: ' + ${responseTimeMsAverage}" />
+
+    <h2>Lookup</h2>
+    <form action="#" th:action="@{/metricsSubmit}" th:object="${metricSearchFormCommand}" method="post">
+        <p>Metric Id: <input type="text" th:field="*{metricId}" /></p>
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+    <p th:if="${metricId} != null" th:text="'Metric Id: ' + ${metricIdResult}" />
+    <p th:if="${requestTimeMs} != null" th:text="'Request Time (ms): ' + ${requestTimeMs}" />
+    <p th:if="${responseSizeBytes} != null" th:text="'Response Size (bytes): ' + ${responseSizeBytes}" />
+    <p th:if="${metricNotFound} == true" th:text="'Metric not found for provided ID'" />
 </body>
 </html>

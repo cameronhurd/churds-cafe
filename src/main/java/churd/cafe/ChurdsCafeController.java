@@ -2,16 +2,23 @@ package churd.cafe;
 
 import churd.metrics.AggregateMetric;
 import churd.metrics.InMemoryMetricsService;
-import churd.metrics.MetricsService;
+import churd.metrics.WebMetric;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ChurdsCafeController {
 
     // TODO: add some variety to the dynamic behavior on these views
+
+    @ModelAttribute("metricSearchFormCommand")
+    public MetricSearchFormCommand getMetricSearchFormCommand() {
+        return new MetricSearchFormCommand();
+    }
 
     @GetMapping("/about")
     public String about(@RequestParam(name="name", required=false, defaultValue="you") String name, Model model) {
@@ -48,7 +55,25 @@ public class ChurdsCafeController {
         model.addAttribute("responseTimeMsAverage", _nanoToMs(aggregateResponseTimeNanos.getAverage()));
         model.addAttribute("responseTimeMsMin", _nanoToMs(aggregateResponseTimeNanos.getMin()));
         model.addAttribute("responseTimeMsMax", _nanoToMs(aggregateResponseTimeNanos.getMax()));
+
         return "metrics";
+    }
+
+    @PostMapping("/metricsSubmit")
+    public String metricsSubmit(@ModelAttribute("metricSearchFormCommand") MetricSearchFormCommand metricSearchFormCommand, Model model) {
+        String metricId = metricSearchFormCommand.getMetricId();
+        if (null != metricId && metricId.length() > 0) {
+            WebMetric metric = InMemoryMetricsService.getInstance().getWebMetricById(metricId);
+            if (null != metric) {
+                model.addAttribute("metricIdResult", metric.getId());
+                model.addAttribute("requestTimeMs", _nanoToMs(metric.getRequestTimeNanos()));
+                model.addAttribute("responseSizeBytes", metric.getResponseByteCount());
+            }
+            else {
+                model.addAttribute("metricNotFound", true);
+            }
+        }
+        return metrics(model);
     }
 
     private Long _nanoToMs(Long nanos) {
