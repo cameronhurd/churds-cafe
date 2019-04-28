@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.concurrent.TimeUnit;
+
 @Controller
 public class ChurdsCafeController {
 
@@ -80,7 +82,7 @@ public class ChurdsCafeController {
         if (null == nanos) {
             return null;
         }
-        return nanos / 1000000;
+        return TimeUnit.MILLISECONDS.convert(nanos, TimeUnit.NANOSECONDS);
     }
 
 }
