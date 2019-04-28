@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Locations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h2>Response Size (Bytes)</h2>
+    <p th:text="'Minimum: ' + ${responseSizeBytesMin}" />
+    <p th:text="'Maximum: ' + ${responseSizeBytesMax}" />
+    <p th:text="'Average: ' + ${responseSizeBytesAverage}" />
+
+    <h2>Response Time (Milliseconds)</h2>
+    <p th:text="'Minimum: ' + ${responseTimeMsMin}" />
+    <p th:text="'Maximum: ' + ${responseTimeMsMax}" />
+    <p th:text="'Average: ' + ${responseTimeMsAverage}" />
+</body>
+</html>
