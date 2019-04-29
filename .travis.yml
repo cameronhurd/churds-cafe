@@ -1,4 +1,5 @@
 language: java
 
 before_install:
-- rm ~/.m2/settings.xml
+ - git clone https://github.com/cameronhurd/churds-web-metrics
+ - cd churds-web-metrics && mvn install
