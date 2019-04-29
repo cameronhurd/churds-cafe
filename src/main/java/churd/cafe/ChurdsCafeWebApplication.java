@@ -11,7 +11,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * java -jar target/gs-serving-web-content-0.1.0.jar
  */
 @SpringBootApplication
-@ServletComponentScan(basePackages = {"churd.metrics"})
+@ServletComponentScan(basePackages = {"churd.metrics.filter"})
 public class ChurdsCafeWebApplication {
 
     // TODO: add README detail about including ServletComponentScan for spring to load the web filter

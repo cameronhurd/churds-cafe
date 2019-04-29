@@ -1,8 +1,8 @@
 package churd.cafe;
 
-import churd.metrics.AggregateMetric;
-import churd.metrics.InMemoryMetricsService;
-import churd.metrics.WebMetric;
+import churd.metrics.api.AggregateMetric;
+import churd.metrics.api.InMemoryMetricsService;
+import churd.metrics.api.WebMetric;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,14 @@ import java.util.concurrent.TimeUnit;
 @Controller
 public class ChurdsCafeController {
 
-    // TODO: add some variety to the dynamic behavior on these views
+
+
+    // TODO: test the aggregate figures - are they accurate (all 6 values)
+
+    // TODO: test byte size is correct... not adding reseting instead of adding - is that correct????
+
+
+
 
     @ModelAttribute("metricSearchFormCommand")
     public MetricSearchFormCommand getMetricSearchFormCommand() {
