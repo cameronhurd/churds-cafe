@@ -6,7 +6,7 @@ A simple web application to demonstrate usage of the churds-web-metrics library 
 
 # How to deploy
 * Clone the repository using git (example: git clone https://github.com/cameronhurd/churds-cafe.git)
-* Run the spring boot application.  There are a few possible ways to do this:
+* Run the spring boot application.  A couple ways to do this:
   * Import the module into an IDE as a maven project and run the main class ChurdsCafeWebApplication (spring boot application)
   * Use maven: mvn spring-boot:run
   
