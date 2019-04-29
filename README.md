@@ -10,9 +10,11 @@ A simple web application to demonstrate usage of the churds-web-metrics library 
   * Import the module into an IDE as a maven project and run the main class ChurdsCafeWebApplication (spring boot application)
   * Use maven: ```mvn spring-boot:run```
   
-# How Use the web application
+# How to use the web application
 * Once the spring boot application is up, use a browser to navigate to http://localhost:8080/
 * View dummy/test pages like "About Us", "Location" and "Contact Us"
 * The metrics page has response size and response time metrics that are displayed.
   * The bottom of the metrics page has a "Lookup" section where a historical metric can be viewed by ID.  
     * Metric ID's can be found in the spring boot application log as they are recorded and also in the response header churds-metrics-id
+    
+NOTE - For more details about the web metric tracking library see https://github.com/cameronhurd/churds-web-metrics
