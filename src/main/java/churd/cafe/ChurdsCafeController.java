@@ -15,15 +15,6 @@ import java.util.concurrent.TimeUnit;
 @Controller
 public class ChurdsCafeController {
 
-
-
-    // TODO: test the aggregate figures - are they accurate (all 6 values)
-
-    // TODO: test byte size is correct... not adding reseting instead of adding - is that correct????
-
-
-
-
     @ModelAttribute("metricSearchFormCommand")
     public MetricSearchFormCommand getMetricSearchFormCommand() {
         return new MetricSearchFormCommand();
