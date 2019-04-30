@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/cameronhurd/churds-cafe.svg?branch=master)](https://travis-ci.com/cameronhurd/churds-cafe)
 
 # What
-A simple web application to demonstrate usage of the churds-web-metrics library built for the contrast security Java Instrumentation Engineer Project
+A simple web application to demonstrate usage of the churds-web-metrics library
 
 # How to deploy
 * Clone the repository using git (example: ```git clone https://github.com/cameronhurd/churds-cafe.git```)
